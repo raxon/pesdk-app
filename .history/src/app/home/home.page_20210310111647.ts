@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { Capacitor, Plugins } from '@capacitor/core';
-import { image } from './imageb64'
+
 // Declaring the modules for PESDK
 declare var PESDK;
 const { Filesystem } = Plugins;
@@ -12,20 +12,15 @@ const { Filesystem } = Plugins;
 })
 export class HomePage {
   constructor() {}
- error:any = "no-error"
 
   pesdk_success(result) {
     if (result != null) {
       alert('PESDK result: ' + result.image);
-    } else {
-      this.error = "result null";
-
+    } else
       console.log('pesdk_success: result is null, the editor was canceled');
   };
-  }
 
   pesdk_failure(error) {
-    this.error = JSON.stringify(error);
     console.log('pesdk_failure: ' + JSON.stringify(error))
   };
 
@@ -38,10 +33,9 @@ export class HomePage {
         },
       },
     };
-   const data = `data:image/png;charset=utf-8;base64, ${image}`;
 
     PESDK.openEditor(
         this.pesdk_success, this.pesdk_failure,
-        data, config);
+        PESDK.loadResource('www/assets/LA.jpg'), config);
   }
 }

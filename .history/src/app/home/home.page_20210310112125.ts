@@ -38,10 +38,10 @@ export class HomePage {
         },
       },
     };
-   const data = `data:image/png;charset=utf-8;base64, ${image}`;
+   const data = `data:image/png;charset=utf-8;base64,`;
 
     PESDK.openEditor(
         this.pesdk_success, this.pesdk_failure,
-        data, config);
+        image, config);
   }
 }

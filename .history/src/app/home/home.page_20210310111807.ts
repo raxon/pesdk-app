@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { Capacitor, Plugins } from '@capacitor/core';
-import { image } from './imageb64'
+
 // Declaring the modules for PESDK
 declare var PESDK;
 const { Filesystem } = Plugins;
@@ -38,10 +38,9 @@ export class HomePage {
         },
       },
     };
-   const data = `data:image/png;charset=utf-8;base64, ${image}`;
 
     PESDK.openEditor(
         this.pesdk_success, this.pesdk_failure,
-        data, config);
+        PESDK.loadResource('www/assets/LA.jpg'), config);
   }
 }
