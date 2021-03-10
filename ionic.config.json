@@ -1,0 +1,7 @@
+{
+  "name": "pesdk-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
